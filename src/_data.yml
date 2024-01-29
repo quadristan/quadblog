@@ -1,0 +1,16 @@
+lang: en
+
+home:
+  welcome: Welcome to Quadristan's blog
+
+menu_links: []
+extra_head: []
+
+# Metas plugin https://lume.land/plugins/metas/#description
+metas:
+  site: Quadristan's blog
+  description: A spectrum of experiences mixed with essence
+  title: "=title"
+  image: "=image"
+  linkedin: "@quadristan"
+  lang: en
