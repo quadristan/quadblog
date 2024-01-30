@@ -12,6 +12,8 @@ tags:
 When chosing a blog, many technologies offers to you. I picked this one, and I
 will tell you why. In this story, you will learn how I discover Deno
 
+<!-- more -->
+
 ## A little story about my blog search, and what I ended up as requirements for a blog
 
 I am not used to make blog. I made a couple of them, on Medium. Since I like to
