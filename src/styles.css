@@ -1,4 +1,5 @@
 /* Lume's design system */
+@import "css/critical.css";
 @import "css/ds.css";
 
 /* Custom components */
@@ -7,6 +8,7 @@
 @import "css/post-list.css";
 @import "css/post.css";
 @import "css/comments.css";
+@import "css/layout.css";
 
 /* Make the links black */
 :root {

@@ -11,6 +11,9 @@
     <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
     
     <link rel="stylesheet" href="/styles.css">
+    {{ if it.page_css }}
+    <link rel="stylesheet" href="/styles/pages/{{ page_css }}" />
+    {{ /if }}
     <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metas.site }}">
     <link rel="alternate" href="/feed.json" type="application/json" title="{{ metas.site }}">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -20,6 +23,7 @@
   </head>
   <body>
     <nav class="navbar">
+       <div>
       <a href="/" class="navbar-home">
         {{ if it.logo }}
           {{ it.logo }}
@@ -27,6 +31,11 @@
           <strong>{{ metas.site }}</strong>
         {{ /if }}
       </a>
+      <br/>
+      <a href="/about" class="navbar-home">
+        About me
+      </a>
+      </div>
 
       <ul class="navbar-links">
       {{- for entry of search.pages("menu.visible=true", "menu.order") }}
@@ -45,7 +54,7 @@
       {{ /for }}
       </ul>
     </nav>
-
+ 
     <main class="{{ it.bodyClass }}">
       {{ content }}
     </main>
