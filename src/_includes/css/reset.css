@@ -8,12 +8,6 @@ body {
     color: var(--color-foreground);
     background-color: var(--color-background);
     margin: 0;
-    /* -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility; 
-    display: grid;
-    min-height: 100vh;
-    min-width: 320px;
-    grid-template-rows: auto 1fr auto; */
 }
 
 a {
@@ -41,23 +35,49 @@ pre {
 }
 
 table {
-    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0; 
+    min-width: 400px;
+    box-shadow: 0 0 20px var(--color-foreground-1);
 }
 
-th {
+table thead tr {
+    background-color: var(--color-table-header);
+    color: var(--color-foreground);
     text-align: left;
-    padding: 5px 10px;
-    background: var(--color-background-2);
-    font: var(--text-caption-bold);
 }
 
-td {
-    padding: 5px 10px;
-    border-bottom: solid 1px var(--color-background-2);
+table th,
+table td {
+    padding: 12px 15px;
+} 
 
-    & code {
-        white-space: nowrap;
-    }
+
+
+table tbody tr {
+    border-bottom: 1px solid var(--color-foreground-1);
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: var(--color-background-1); 
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--color-table-header);
+}
+
+table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+blockquote {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background: var(--color-background-1);
+    border-radius: 8px; 
+    box-shadow: 0 0 20px var(--color-foreground-1);
 }
 
 :not(:defined) {
@@ -68,3 +88,4 @@ td {
     list-style: none;
     padding-inline: 0;
 }
+

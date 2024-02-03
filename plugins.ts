@@ -43,7 +43,8 @@ export default function (userOptions?: Options) {
   const options = merge(defaults, userOptions);
 
   return (site: Lume.Site) => {
-    site.use(postcss())
+    site
+      .use(postcss())
       .use(basePath())
       .use(toc())
       .use(prism(options.prism))
@@ -61,11 +62,13 @@ export default function (userOptions?: Options) {
       .copy("fonts")
       .copy("js")
       .copy("favicon.png")
+      .copy("img")
+      .copy("resources")
       .mergeKey("extra_head", "stringArray")
       .preprocess([".md"], (pages) => {
         for (const page of pages) {
           page.data.excerpt ??= (page.data.content as string).split(
-            /<!--\s*more\s*-->/i,
+            /<!--\s*more\s*-->/i
           )[0];
         }
       });
@@ -73,13 +76,13 @@ export default function (userOptions?: Options) {
     // Basic CSS Design System
     site.remoteFile(
       "_includes/css/ds.css",
-      "https://unpkg.com/@lumeland/ds@0.3.3/ds.css",
+      "https://unpkg.com/@lumeland/ds@0.3.3/ds.css"
     );
 
     // Mastodon comment system
     site.remoteFile(
       "/js/comments.js",
-      "https://unpkg.com/@oom/mastodon-comments@0.2.1/src/comments.js",
+      "https://unpkg.com/@oom/mastodon-comments@0.2.1/src/comments.js"
     );
   };
 }

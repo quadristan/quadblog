@@ -90,7 +90,8 @@ another blog post about Deno, but the tl-dr is that it feels like a better node,
 from my devlopper perspective.
 
 Lume has neat templates, alas, the best examples are not open-source licensed. I
-forked https://github.com/lumeland/theme-simple-blog and adapted it to my needs.
+forked [theme-simple-blog](https://github.com/lumeland/theme-simple-blog) and
+adapted it to my needs.
 
 Lume checks all the boxes: the static generation is neat, it is configurable,
 and the look-and-feel is acceptable to my tastes

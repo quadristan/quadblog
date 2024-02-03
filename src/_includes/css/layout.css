@@ -48,3 +48,8 @@
         min-inline-size: var(--main-min-width, 50%);
     }
 }
+
+
+.svg-light-dark path  {
+    fill: var(--color-foreground);
+}

@@ -1,5 +1,5 @@
 ---
-title: My cryptographic requirements for Engineers
+title: My cryptographic guidelines for Engineers
 date: 2024-02-03T08:56:19.252Z
 author: Tristan Parisot
 tags:
@@ -46,10 +46,14 @@ key of 4096 bits won't be enough!
 
 My rule of thumb
 
+<center>
+
 | Key type                        | Key length |
 | ------------------------------- | ---------- |
 | Public/private keys (RSA,EdDSA) | 4096       |
 | Symmetric keys (AES)            | 256        |
+
+</center>
 
 You can use 128 bits keys for short-lived symmetric key usage. For example,
 checking the authenticity of a message during its transmission.
@@ -157,10 +161,20 @@ For that, you can use [VOPRF](https://github.com/cloudflare/voprf-ts).
 
 ## Low-level requirements
 
+### Crypto parameters shouldn't end up in code, even public keys.
+
+Use a secret management toolchain such as [Vault](https://www.vaultproject.io/)
+to have secrets injected into your code.
+
+Public keys should also be modifiable. You should have environment-specific
+keys, and the ability to switch to a custom key during development.
+
 ### Use high-level crypto tools, not low-level tools
 
 The crypto world is deep, and the deeper you go, the harder it becomes to use it
 safely. Here is my categorization
+
+<center>
 
 | Level      | Def                                                     | Examples                    | Usage                                                       |
 | ---------- | ------------------------------------------------------- | --------------------------- | ----------------------------------------------------------- |
@@ -168,12 +182,14 @@ safely. Here is my categorization
 | Objects    | Solves a single-boundary problem                        | OPRF,HMAC                   | ✅ for single-security boundary 👎 with multiple-boundaries |
 | Primitives | Lowest level element that solves a mathematical problem | SHA, AES                    | 👎 Usually, there is no valid use-case to use them.         |
 
-### Do not implement things you can't maintain
+</center>
+
+### Do not implement things you can't maintain. Use external deps instead
 
 This is not specific to cryptography, but crypto is a complex world. Likely, you
 or your company do not have crypto expertise. Unless you have in your team a
 cryptographer and a crypto analyst, you should not implement crypto
-primitives/objects/protocols.
+primitives/objects/protocols. Rely on other teams and company.
 
 ### Assume things leak
 
@@ -186,7 +202,7 @@ mechanism, then there is an issue.
 The source code will leak, see above. People will reverse-engineer it, someone
 can leave the company with a USB drive, and a new owner will find it...
 
-And on top of that, think of this question
+And on top of that, think of this question:
 
 > Would you rather change the whole codebase, or to re-generate keys?
 
@@ -211,5 +227,11 @@ Public-key cryptography is based on the mathematical properties of big numbers.
 In RSA, the size of the keys is roughly equal to the input size. If you need to
 have public-key cryptography for content that can be bigger than the key, use
 symmetric encryption. You can protect your symmetric key with a public key.
+
+### Use HTTPS everywhere.
+
+Between your users and the edge servers, let the CDN handle the certificates. If
+you do not want a CDN, you can use Traefik and even leverage
+[Let's encrypt](https://doc.traefik.io/traefik/user-guides/docker-compose/acme-tls).
 
 [^1]: https://www.researchgate.net/figure/The-required-time-to-crack-an-algorithm-with-respect-to-its-key-size_tbl1_277905952
