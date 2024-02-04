@@ -130,7 +130,7 @@ shared key.
 You can still use the general case, but HMAC will be faster and safer. So, think
 of HMAC!
 
-### Encrypting arbitrary data, temper-proof
+### Encrypting arbitrary data and protecting its integrity
 
 Encrypting data is done using an authenticated symmetric encryption algorithm.
 Using encryption without authentication will give you very little performance
