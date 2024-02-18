@@ -15,6 +15,9 @@ import toc from "https://deno.land/x/lume_markdown_plugins@v0.7.0/toc.ts";
 import image from "https://deno.land/x/lume_markdown_plugins@v0.7.0/image.ts";
 import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.7.0/footnotes.ts";
 
+import codeHighlight from "lume/plugins/code_highlight.ts";
+import lang_typescript from "npm:highlight.js/lib/languages/typescript";
+
 import "lume/types.ts";
 
 export interface Options {
@@ -59,6 +62,13 @@ export default function (userOptions?: Options) {
       .use(pagefind(options.pagefind))
       .use(sitemap())
       .use(feed(options.feed))
+      .use(
+        codeHighlight({
+          languages: {
+            typescript: lang_typescript,
+          },
+        })
+      )
       .copy("fonts")
       .copy("js")
       .copy("favicon.png")
@@ -79,10 +89,21 @@ export default function (userOptions?: Options) {
       "https://unpkg.com/@lumeland/ds@0.3.3/ds.css"
     );
 
+    site.remoteFile(
+      "_includes/css/code.css",
+      "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github.min.css"
+    );
+
     // Mastodon comment system
     site.remoteFile(
       "/js/comments.js",
       "https://unpkg.com/@oom/mastodon-comments@0.2.1/src/comments.js"
+    );
+
+    // Mermaid
+    site.remoteFile(
+      "/js/mermaid.min.js",
+      "https://unpkg.com/browse/mermaid@10.8.0/dist/mermaid.min.js"
     );
   };
 }

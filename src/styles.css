@@ -1,6 +1,8 @@
 /* Lume's design system */
 @import "css/critical.css";
 @import "css/ds.css";
+@import "css/code.css";
+@import "css/code-style.css";
 
 /* Custom components */
 @import "css/navbar.css";
@@ -30,4 +32,4 @@ main {
 /* Search tweak */
 .search {
   margin-top: var(--row-gap-xsmall);
-}
+} 
