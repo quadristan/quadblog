@@ -73,11 +73,12 @@ table tbody tr.active-row {
 
 blockquote {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 25px;
     background: var(--color-background-1);
     border-radius: 8px; 
     box-shadow: 0 0 20px var(--color-foreground-1);
+    flex-direction: column;
 }
 
 :not(:defined) {
