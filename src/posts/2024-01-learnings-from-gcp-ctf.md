@@ -75,7 +75,7 @@ key/secret manager.
 Lesson for ethical hackers: do not encrypt all the files with the same symmetric
 key. Make sure the symmetric key is not stored unencrypted on the disk. More
 detail
-[here](./2023-02-my-crypto-guidelines-for-eng.md#encrypting-arbitrary-data-and-protecting-its-integrity)
+[here](./2024-02-my-crypto-guidelines-for-eng.md#encrypting-arbitrary-data-and-protecting-its-~~integrity~~)
 
 ### Permission set on the asset for someone not in the IAM (Identity Access Management)
 

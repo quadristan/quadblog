@@ -10,4 +10,4 @@ image: /img/my-face.jpg
 I'm Tristan Parisot. I develop applications for a living. My goal is to make
 safe environments for developers so they can easily solve modern problems.
 
-Check out my [resume](/resources/2023-02-resume.pdf)
+Check out my [resume](/resources/2024-02-resume.pdf)
