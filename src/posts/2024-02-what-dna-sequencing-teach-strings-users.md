@@ -24,7 +24,7 @@ I started being a tech lead with this strict guideline:
 > Dont suffix a name with `-data`. Anything is data. Drop this suffix.
 
 As usual, when there is an issue with naming something, it often means something
-is wrong. The [DKIW pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid)
+is wrong. The [DIKW pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid)
 classifies data as facts, measurements, or representations of observations.
 
 So, I adjusted my guideline:
