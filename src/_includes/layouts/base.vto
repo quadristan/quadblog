@@ -2,13 +2,21 @@
 
 <html lang="{{ it.lang }}">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"> 
     <title>{{ it.title || metas.title }} - {{ metas.site }}</title>
 
     <meta name="color-schemes" content="light dark">
     <meta name="theme-color" content="hsl(220, 20%, 100%)" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+     <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
     
     <link rel="stylesheet" href="/styles.css">
     {{ if it.page_css }}
@@ -21,11 +29,52 @@
     <script src="/js/main.js" type="module"></script>
     {{ it.extra_head?.join("\n") }}
 
-   <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  </script>
+<script>
+  window.$docsify = { 
+    name: "Docs",
+    mermaidConfig: {
+      querySelector: ".mermaid",
+    },
+     mermaidZoom: {
+          minimumScale: 1,
+          maximumScale: 5,
+          zoomPannel: true,
+      },
+  };
+</script>
+  
+
+   
   </head>
   <body>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/d3@7"></script>
+
+    <script type="module">
+   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+     window.mermaid = mermaid;
+   // https://github.com/cloudflare/cloudflare-docs/pull/9694
+    function refresh(newColorScheme){ 
+     const mermaidTheme = newColorScheme === "dark" ? "dark" : "neutral";
+      mermaid.mermaidAPI.initialize({ theme: mermaidTheme, startOnLoad: true });
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      const newColorScheme = event.matches ? "dark" : "light";
+      refresh(newColorScheme)
+    });
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+   refresh("dark") 
+  }else{ 
+  refresh("light") 
+  }
+  </script>
+
+    <script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js" defer></script>
+    <script src="//unpkg.com/docsify-mermaid-zoom/dist/docsify-mermaid-zoom.js" defer></script>
+ 
+    <div class="sidebar" style="display: none"></div>
+
     <nav class="navbar">
        <div>
       <a href="/" class="navbar-home">

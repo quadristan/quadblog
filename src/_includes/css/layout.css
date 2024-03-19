@@ -53,3 +53,9 @@
 .svg-light-dark path  {
     fill: var(--color-foreground);
 }
+
+.svg-light-dark path {
+    fill: var(--color-foreground);
+}
+
+ 
