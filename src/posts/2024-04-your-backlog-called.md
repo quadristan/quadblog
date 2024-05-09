@@ -14,7 +14,7 @@ ends up in the backlog.
 The monster get bigger over time, and at some point it becomes _unmanaged_. What to do when
 you reach this stage, and how can you prevent it from happening again?
 
-In this blog, we will try to get to a better place, and we will see the impact of the paradox of _project_ vs _product_
+In this blog post, we will try to get to a better place, and we will see the impact of the paradox of _project_ vs _product_
 
 <!-- more -->
 

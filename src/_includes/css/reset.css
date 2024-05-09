@@ -37,7 +37,6 @@ pre {
 table {
     border-collapse: collapse;
     margin: 25px 0; 
-    min-width: 400px;
     box-shadow: 0 0 20px var(--color-foreground-1);
 }
 
