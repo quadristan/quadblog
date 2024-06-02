@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html{% if siteConfig.site.language %} lang="{{ siteConfig.site.language }}" {% endif %}{% if siteConfig.site.dir %} dir="{{ siteConfig.site.dir }}" {% endif %}class="no-js">
+  <head>
+    {% include "partials/head.njk" %}
+    {% if mermaid %}
+
+      <script src="/assets/d3/d3.min.js" defer></script>
+      <script type="module" async>
+        import mermaid from "/assets/mermaid/mermaid.esm.min.mjs"
+        window.mermaid = mermaid;
+        const elementCode = '.mermaid'
+
+        const loadMermaid = function (theme) {
+          window
+            .mermaid
+            .initialize({theme})
+          window
+            .mermaid
+            .init({
+              theme
+            }, document.querySelectorAll(elementCode))
+        }
+        const saveOriginalData = function () {
+          return new Promise((resolve, reject) => {
+            try {
+              var els = document.querySelectorAll(elementCode),
+                count = els.length;
+              els.forEach(element => {
+                element.setAttribute('data-original-code', element.innerHTML)
+                count--
+                if (count == 0) {
+                  resolve()
+                }
+              });
+            } catch (error) {
+              reject(error)
+            }
+          })
+        }
+        const resetProcessed = function () {
+          return new Promise((resolve, reject) => {
+            try {
+              var els = document.querySelectorAll(elementCode),
+                count = els.length;
+              els.forEach(element => {
+                if (element.getAttribute('data-original-code') != null) {
+                  element.removeAttribute('data-processed')
+                  element.innerHTML = element.getAttribute('data-original-code')
+                }
+                count--
+                if (count == 0) {
+                  resolve()
+                }
+              });
+            } catch (error) {
+              reject(error)
+            }
+          })
+        }
+
+        // https://github.com/cloudflare/cloudflare-docs/pull/9694
+        function refreshMermaidTheme(newColorScheme) {
+          const mermaidTheme = newColorScheme === "dark"
+            ? "dark"
+            : "neutral";
+          resetProcessed().then(() => {
+            loadMermaid(mermaidTheme)
+
+            setTimeout(() => {
+
+              var svgs = d3.selectAll(".mermaid svg");
+              svgs.each(function () {
+                var svg = d3.select(this);
+
+                svg.html("<g>" + svg.html() + "</g>");
+                var inner = svg.select("g");
+                var zoom = d3
+                  .zoom()
+                  .on("zoom", function (event) {
+                    inner.attr("transform", event.transform);
+                  });
+                svg.call(zoom);
+              });
+
+            }, 200)
+
+          })
+
+        }
+        const theme = window
+          .localStorage
+          .getItem("theme") ?? (
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? "dark"
+            : "light")
+
+        saveOriginalData()
+        refreshMermaidTheme(theme)
+
+        window.refreshMermaidTheme = refreshMermaidTheme;
+      </script>
+    {% else %}
+
+    {% endif %}
+
+  </head>
+  <body>
+    <div class="sidebar" style="display: none"></div>
+
+    {% include "partials/header.njk" %}
+    <div id="main" class="container">
+      {{ content|safe }}
+      {% include "partials/footer.njk" %}
+    </div>
+  </body>
+</html>
