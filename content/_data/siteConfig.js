@@ -162,7 +162,7 @@ module.exports = {
   // Settings for post share buttons
   //
   // Possible options:
-  // mastodon, twitter, linkedin, facebook, hackernews, clipboard
+  // mastodon, linkedin, facebook, hackernews, clipboard
   //
   // 'clipboard' is an option to copy the article URL to user's clipboard
   //
@@ -172,7 +172,6 @@ module.exports = {
   // ---------------------------------------------------------------------------
   shareButtons: [
     'mastodon',
-    'twitter',
     'linkedin',
     'facebook',
     'hackernews',
