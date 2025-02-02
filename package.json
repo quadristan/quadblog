@@ -3,6 +3,7 @@
   "version": "2.4.3",
   "private": true,
   "scripts": {
+    "newpost": "tsx ./scripts/new-blog-post.ts",
     "prebuild": "npm run clean",
     "build:eleventy": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy --quiet",
     "prebuild-gh-pages": "npm run clean",
@@ -77,6 +78,8 @@
     "@eslint/compat": "^1.2.6",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.19.0",
-    "globals": "^15.14.0"
+    "globals": "^15.14.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2"
   }
 }
