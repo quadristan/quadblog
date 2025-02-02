@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .post-navigation {
   ul {
     list-style: none;
@@ -6,7 +8,7 @@
     display: flex;
     justify-content: space-between;
 
-    @include mobile {
+    @include mixins.mobile {
       flex-direction: column;
     }
 
@@ -17,7 +19,7 @@
       font-size: 1rem;
       flex: 1;
 
-      @include mobile {
+      @include mixins.mobile {
         max-width: 100%;
         margin: 0.5rem 0;
       }
@@ -25,9 +27,9 @@
       a {
         text-decoration: none;
         height: 100%;
-        @include transition(background);
+        @include mixins.transition(background);
 
-        @include mobile {
+        @include mixins.mobile {
           padding: 1rem 0;
         }
 

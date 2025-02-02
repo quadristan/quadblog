@@ -1,3 +1,5 @@
+@use "../mixins";
+
 .pagination {
   font-family: var(--arial-font-family);
   font-size: 1rem;
@@ -7,7 +9,7 @@
     margin: 0;
     font-size: 1rem;
 
-    @include mobile {
+    @include mixins.mobile {
       font-size: 1.25rem;
     }
   }
@@ -20,7 +22,7 @@
     align-items: center;
     justify-content: center;
 
-    @include mobile {
+    @include mixins.mobile {
       flex-direction: column;
     }
   }
@@ -51,14 +53,14 @@
       min-width: 6.75rem;
       border-radius: 1.25rem;
 
-      @include mobile {
+      @include mixins.mobile {
         font-size: 1.25rem;
         height: 3rem;
       }
     }
 
     a {
-      @include transition(background-color);
+      @include mixins.transition(background-color);
 
       &:hover,
       &:focus {
@@ -76,7 +78,7 @@
     .articles {
       padding-left: 0.375rem;
 
-      @include biggerThanMobile {
+      @include mixins.biggerThanMobile {
         clip: rect(0 0 0 0);
         clip-path: inset(50%);
         height: 1px;
@@ -99,7 +101,7 @@
     color: var(--background-color);
     cursor: pointer;
     line-height: 1;
-    @include transition(opacity);
+    @include mixins.transition(opacity);
 
     &[disabled],
     &[disabled]:hover,
@@ -121,7 +123,7 @@
       margin-left: 0.5rem;
     }
 
-    @include mobile {
+    @include mixins.mobile {
       text-align: center;
 
       .input-label {
@@ -135,7 +137,7 @@
     }
   }
 
-  @include mobile {
+  @include mixins.mobile {
     .links,
     .inactive-link {
       width: 100%;
@@ -184,7 +186,7 @@
   }
 }
 
-@include noJS {
+@include mixins.noJS {
   .pagination .current,
   .pagination .current * {
     display: none;

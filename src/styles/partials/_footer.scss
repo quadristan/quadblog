@@ -1,13 +1,17 @@
+@use "../mixins";
+
 .footer {
   :where(ul[role="list"], ol[role="list"]) {
-      list-style: none;
-      padding-inline: 0;
-      display: flex;
-      gap: 8px;
-    }
+    list-style: none;
+    padding-inline: 0;
+    display: flex;
+    gap: 8px;
+  }
 
-  margin: 4rem 0 3rem;
-  border-top: 1px solid var(--footer-separator-color);
+  & {
+    margin: 4rem 0 3rem;
+    border-top: 1px solid var(--footer-separator-color);
+  }
 
   .container {
     padding-left: 0;
@@ -61,6 +65,7 @@
 
   & a:hover,
   & a:focus {
+
     & svg,
     & svg path,
     & svg g {
@@ -80,7 +85,7 @@
   }
 }
 
-@include aboveFooterBreakpoint {
+@include mixins.aboveFooterBreakpoint {
   .footer .links {
     flex-direction: column;
 

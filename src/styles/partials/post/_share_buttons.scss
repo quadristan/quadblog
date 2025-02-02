@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .share-buttons {
   position: relative;
 
@@ -12,7 +14,7 @@
     min-width: 9rem;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     .mastodon[data-tooltip]::after {
       left: 230%;
     }
@@ -56,12 +58,12 @@
 
         .fillable {
           fill: var(--link-color);
-          @include transition(fill);
+          @include mixins.transition(fill);
         }
 
         .fillable-2 {
           fill: var(--background-color);
-          @include transition(fill);
+          @include mixins.transition(fill);
         }
 
         &.hackernews {
@@ -88,7 +90,7 @@
   }
 }
 
-@include noJS {
+@include mixins.noJS {
   .mastodon,
   .clipboard {
     display: none;

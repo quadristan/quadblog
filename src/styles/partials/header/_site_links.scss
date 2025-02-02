@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .site-links {
   display: flex;
   list-style: none;
@@ -17,18 +19,18 @@
       display: flex;
       justify-content: center;
       letter-spacing: 0.0125rem;
-      @include transition(color);
+      @include mixins.transition(color);
 
       svg {
         display: inline-block;
         height: 1.2rem;
         margin-left: 0.3rem;
-        @include transition(fill);
+        @include mixins.transition(fill);
 
         path,
         g {
           fill: var(--link-color);
-          @include transition(fill);
+          @include mixins.transition(fill);
         }
       }
 
@@ -57,7 +59,7 @@
   }
 }
 
-@include belowMenuBreakpoint {
+@include mixins.belowMenuBreakpoint {
   .site-links {
     display: block;
     width: 100%;

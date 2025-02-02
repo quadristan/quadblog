@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .reading-progress-bar {
   background-color: var(--link-color);
   position: fixed;
@@ -7,7 +9,7 @@
   height: 4px;
   z-index: 1000;
 
-  @include reducedMotion {
+  @include mixins.reducedMotion {
     display: none;
   }
 }

@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .scroll-up-arrow {
   border-radius: 50%;
   cursor: pointer;
@@ -11,7 +13,7 @@
   z-index: 9;
   box-shadow: 0 0.125rem 0.25rem 0 var(--dark-background-color);
   background-color: var(--scroll-up-arrow-background-color);
-  @include transition(bottom);
+  @include mixins.transition(bottom);
 
   &:hover {
     background-color: var(--scroll-up-arrow-hover-background-color);
@@ -31,7 +33,7 @@
   }
 }
 
-@include noJS {
+@include mixins.noJS {
   .scroll-up-arrow {
     display: none;
   }

@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "../../mixins";
+
 .bottom-meta {
   display: flex;
   flex-direction: row;
@@ -9,7 +12,7 @@
     width: 45%;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     flex-direction: column;
     margin: 0;
 
@@ -20,6 +23,6 @@
   }
 }
 
-@import 'tags';
-@import 'share_buttons';
-@import 'mastodon_share_dialog';
+@include meta.load-css('tags');
+@include meta.load-css('share_buttons');
+@include meta.load-css('mastodon_share_dialog');

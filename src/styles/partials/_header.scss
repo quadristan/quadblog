@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "../mixins";
+
 .header {
   display: flex;
   flex-direction: row;
@@ -14,20 +17,20 @@
     padding: 0;
   }
 
-  @import 'header/hamburger';
-  @import 'header/site_logo';
-  @import 'header/main_nav';
-  @import 'header/theme_switcher';
-  @import 'header/site_links';
+  @include meta.load-css('header/hamburger');
+  @include meta.load-css('header/site_logo');
+  @include meta.load-css('header/main_nav');
+  @include meta.load-css('header/theme_switcher');
+  @include meta.load-css('header/site_links');
 }
 
-@include noJS {
+@include mixins.noJS {
   .theme-switcher {
     display: none;
   }
 }
 
-@include belowMenuBreakpoint {
+@include mixins.belowMenuBreakpoint {
   .header {
     display: block;
     width: 100%;

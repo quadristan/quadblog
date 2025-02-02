@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .site-logo {
   display: flex;
 
@@ -12,7 +14,7 @@
     font-weight: bold;
     text-transform: uppercase;
     font-family: var(--heading-font-family);
-    @include transition(opacity);
+    @include mixins.transition(opacity);
 
     span {
       font-size: 1.5rem;
@@ -31,7 +33,7 @@
   }
 }
 
-@include belowMenuBreakpoint {
+@include mixins.belowMenuBreakpoint {
   .site-logo {
     margin-top: 1rem;
     margin-bottom: 2rem;

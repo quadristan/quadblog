@@ -1,3 +1,5 @@
+@use "../mixins";
+
 .feed-list {
   ul {
     list-style: none;
@@ -13,7 +15,7 @@
       svg {
         width: 3rem;
         height: 3rem;
-        @include transition(opacity);
+        @include mixins.transition(opacity);
       }
 
       &:hover svg,
@@ -42,7 +44,7 @@
   }
 }
 
-@include darkMode {
+@include mixins.darkMode {
   .feed-list svg {
     filter: saturate(70%) contrast(90%);
   }

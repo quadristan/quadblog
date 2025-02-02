@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .post-tags {
   display: flex;
   flex-direction: column;
@@ -35,7 +37,7 @@
         margin-right: 0.625rem;
         margin-bottom: 0.625rem;
         border-radius: 0.5rem;
-        @include transition(background);
+        @include mixins.transition(background);
 
         &:hover,
         &:focus {

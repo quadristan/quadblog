@@ -1,3 +1,5 @@
+@use "../../mixins";
+
 .theme-switcher {
   cursor: pointer;
   width: 3rem;
@@ -12,7 +14,7 @@
     width: 1.5rem;
     height: 1.5rem;
     fill: var(--theme-switcher-color);
-    @include transition(opacity);
+    @include mixins.transition(opacity);
 
     &.light-toggle {
       display: none;
@@ -40,7 +42,7 @@
   }
 }
 
-@include belowMenuBreakpoint {
+@include mixins.belowMenuBreakpoint {
   .theme-switcher {
     position: absolute;
     top: 0.5rem;

@@ -1,3 +1,5 @@
+@use "variables";
+
 @mixin mediaQuery($property, $value) {
   @media ($property: $value) {
     @content;
@@ -22,7 +24,7 @@
   }
 }
 
-@mixin transition($property, $duration: $defaultTransitionTime) {
+@mixin transition($property, $duration: variables.$defaultTransitionTime) {
   transition: $property $duration ease-in-out;
   @include noTransitionOnReducedMotion;
 }
@@ -46,37 +48,37 @@
 }
 
 @mixin belowMenuBreakpoint {
-  @include maxWidth($menuBreakpoint) {
+  @include maxWidth(variables.$menuBreakpoint) {
     @content;
   }
 }
 
 @mixin aboveMediumBreakpoint {
-  @include minWidth($mediumBreakpoint) {
+  @include minWidth(variables.$mediumBreakpoint) {
     @content;
   }
 }
 
 @mixin aboveMenuBreakpoint {
-  @include minWidth($menuBreakpoint + 1px) {
+  @include minWidth(variables.$menuBreakpoint + 1px) {
     @content;
   }
 }
 
 @mixin aboveFooterBreakpoint {
-  @include maxWidth($footerBreakpoint) {
+  @include maxWidth(variables.$footerBreakpoint) {
     @content;
   }
 }
 
 @mixin mobile {
-  @include maxWidth($mainBreakpoint) {
+  @include maxWidth(variables.$mainBreakpoint) {
     @content;
   }
 }
 
 @mixin biggerThanMobile {
-  @include minWidth($mainBreakpoint + 1px) {
+  @include minWidth(variables.$mainBreakpoint + 1px) {
     @content;
   }
 }

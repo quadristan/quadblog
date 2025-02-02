@@ -1,3 +1,5 @@
+@use "../mixins";
+
 .tag-list {
   ul {
     list-style: none;
@@ -12,7 +14,7 @@
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
       margin: 0.5rem;
-      @include transition(background);
+      @include mixins.transition(background);
 
       &:hover,
       &:focus {

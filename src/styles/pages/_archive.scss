@@ -1,3 +1,6 @@
+@use "../mixins";
+@use "../variables";
+
 .archive {
   margin: 0 0 3rem;
   padding: 0;
@@ -7,7 +10,7 @@
   & svg path,
   & svg g {
     fill: var(--link-color);
-    @include transition(fill);
+    @include mixins.transition(fill);
   }
 
   .year-heading {
@@ -18,7 +21,7 @@
     .eleventy-emoji {
       display: inline-block;
       transform: rotate(0deg);
-      @include transition(transform);
+      @include mixins.transition(transform);
     }
 
     &.hidden .eleventy-emoji {
@@ -32,7 +35,7 @@
     opacity: 1;
     padding: 0;
     margin-bottom: 3rem;
-    @include transition(opacity, $longTransitionTime);
+    @include mixins.transition(opacity, variables.$longTransitionTime);
 
     &.hidden {
       display: none;
@@ -83,7 +86,7 @@
   }
 }
 
-@include mobile {
+@include mixins.mobile {
   .archive > li .post {
     display: block;
 

@@ -1,9 +1,11 @@
+@use "../../mixins";
+
 .main-nav {
   display: flex;
   align-items: center;
 }
 
-@include belowMenuBreakpoint {
+@include mixins.belowMenuBreakpoint {
   .main-nav {
     padding: var(--spacing);
     flex-direction: column;

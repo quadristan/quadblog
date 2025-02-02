@@ -1,3 +1,5 @@
+@use "../mixins";
+
 .myphoto {
   display: block;
   float: right;
@@ -6,7 +8,7 @@
   max-width: 16rem;
 }
 
-@include mobile {
+@include mixins.mobile {
   .myphoto {
     float: none;
     margin: 2rem auto;

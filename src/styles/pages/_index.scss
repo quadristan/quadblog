@@ -1,3 +1,5 @@
+@use "../mixins";
+
 .post-list {
   ul {
     list-style: none;
@@ -15,14 +17,14 @@
   article {
     margin-top: 4rem;
 
-    @include mobile {
+    @include mixins.mobile {
       margin-top: 3rem;
     }
 
     header {
       margin-bottom: 0.75rem;
 
-      @include mobile {
+      @include mixins.mobile {
         margin-bottom: 0.5rem;
       }
     }
@@ -39,7 +41,7 @@
   .excerpt {
     font-size: 1.125rem;
 
-    @include mobile {
+    @include mixins.mobile {
       font-size: 1rem;
       line-height: 1.5;
     }
@@ -65,7 +67,7 @@
     font-family: var(--arial-font-family);
     color: var(--post-meta-color);
 
-    @include mobile {
+    @include mixins.mobile {
       margin-top: 0.5rem;
     }
 

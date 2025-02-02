@@ -1,3 +1,5 @@
+@use "../mixins";
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -13,7 +15,7 @@ article {
   overflow: auto;
 }
 
-@include aboveMediumBreakpoint {
+@include mixins.aboveMediumBreakpoint {
   .container {
     max-width: 32rem;
     padding-right: 0;
@@ -21,13 +23,13 @@ article {
   }
 }
 
-@include belowMenuBreakpoint {
+@include mixins.belowMenuBreakpoint {
   .container {
     margin-top: 5rem;
   }
 }
 
-@include biggerThanMobile {
+@include mixins.biggerThanMobile {
   .container {
     max-width: 43rem;
   }
